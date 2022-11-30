@@ -3,13 +3,5 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'recipes/home.html')
+    return render(request, 'recipes/home.html', context={'name': 'Junior'})
 # Create your views here.
-
-
-def contato(request):
-    return HttpResponse('Contato')
-
-
-def sobre(request):
-    return HttpResponse('Sobre')
