@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css"
         integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
     <title>Recipes</title>
 
     <style>
@@ -55,7 +59,7 @@
             --color-gray-9: #191919;
 
             --font-primary: sans-serif;
-            --font-headings: 'Roboto Slab', serif;
+            --font-headings: 'Alexandria', serif;
 
             --spacing-gutter-medium: 3rem;
             --spacing-gutter-large: 4rem;
@@ -75,13 +79,24 @@
         body {
             font-size: 1.6rem;
             font-family: var(--font-primary);
+            background: var(--color-gray-1);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-headings);
+
         }
 
         .container {
             max-width: 144rem;
             margin: 0 auto;
+            padding: var(--spacing-gutter-medium);
         }
 
+        /* Borda superior da pagina */
         .main-header-container {
             background: var(--color-primary-dark);
 
