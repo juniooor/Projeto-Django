@@ -80,6 +80,7 @@
             font-size: 1.6rem;
             font-family: var(--font-primary);
             background: var(--color-gray-1);
+            color: var(--color-dark-text);
         }
 
         h1,
@@ -162,6 +163,11 @@
             color: var(--color-primary);
         }
 
+        .search-form:hover .search-button {
+            transform: scale(1.00);
+            box-shadow: -5px 10px 10px rgba(0, 0, 0, .2);
+        }
+
         .main-content {
             padding-top: 0;
         }
@@ -190,6 +196,11 @@
 
         .recipe-list-item:hover {
             transform: scale(1.05);
+            box-shadow: -10px 10px 12px rgba(0, 0, 0, .6);
+        }
+
+        .recipe-tittle-container {
+            padding: var(--spacing-gutter-medium);
         }
     </style>
 
