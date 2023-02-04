@@ -32,7 +32,7 @@ class RecipeViewsTest(TestCase):
             last_name='name',
             username='usernamee',
             password='123456',
-            email='username@email.com'
+            email='username@email.com',
         )
         recipe = Recipe.objects.create(
             category=category,
@@ -48,7 +48,10 @@ class RecipeViewsTest(TestCase):
             preparation_step_is_html=False,
             is_published=True,
         )
-        pass
+
+        response = self.client.get(reverse('recipes:home'))
+        # content = response.content.decode('utf-8')
+        # self.assertIn('Recipe Title', content)
 
     def test_recipe_category_views_is_ok(self):
         view = resolve(reverse('recipes:category',
