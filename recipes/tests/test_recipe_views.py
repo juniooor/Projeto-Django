@@ -35,6 +35,15 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertIn('Recipe Title', content)
         self.assertEqual(len(response_context_recipes), 1)
 
+    def test_recipe_category_template_loads_recipes(self):
+        needed_title = 'Esse é uma categoria teste'
+        # precisa do Recipe para o teste
+        self.make_recipe(title=needed_title)
+        response = self.client.get(reverse('recipes:category', args=(1,)))
+        content = response.content.decode('utf-8')
+        # checa se existe uma receita
+        self.assertIn(needed_title, content)
+
     def test_recipe_category_views_is_ok(self):
         view = resolve(reverse('recipes:category',
                                kwargs={'category_id': 1000}))
@@ -48,6 +57,16 @@ class RecipeViewsTest(RecipeTestBase):
     def test_recipe_detail_views_is_ok(self):
         view = resolve(reverse('recipes:recipe', kwargs={'id': 1}))
         self.assertIs(view.func, views.recipe)
+
+    def test_recipe_detail_template_loads_the_correct_recipe(self):
+        needed_title = 'Esse é uma pagina detalhada,é uma receita carregada'
+        # precisa do Recipe para o teste
+        self.make_recipe(title=needed_title)
+        response = self.client.get(
+            reverse('recipes:recipe', kwargs={'id': 1}))
+        content = response.content.decode('utf-8')
+        # checa se existe uma receita
+        self.assertIn(needed_title, content)
 
     def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
         response = self.client.get(
