@@ -74,7 +74,7 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertEqual(response.status_code, 404)
 
     def test_recipe_home_template_dont_load_recipes_not_published(self):
-        """Test recipe is_published False dont show"""
+        """teste recipe nao esta publicada, nao está mostrando"""
         # Need a recipe for this test
         self.make_recipe(is_published=False)
 
